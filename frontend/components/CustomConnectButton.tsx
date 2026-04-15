@@ -4,7 +4,7 @@ import { Wallet, ChevronDown, Award } from 'lucide-react';
 import { useAccount, useBalance } from 'wagmi';
 
 export const CustomConnectButton = () => {
-  const { address, isConnected } = useAccount();
+  const { address } = useAccount();
   
   // 获取当前账号的余额
   const { data: balance } = useBalance({

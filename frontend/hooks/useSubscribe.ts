@@ -24,6 +24,7 @@ export function useSubscribe() {
 
   return { 
     handleSubscribe, 
+    txHash: hash,
     isPending: isWaitingInWallet || isConfirming, 
     isSuccess 
   };
