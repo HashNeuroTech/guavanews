@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* 定义 FT 标志性的纸张底色 (FT Pink) */
+  --color-ft-paper: #fff1e5;
+  --color-ft-text: #333333;
+  --color-ft-accent: #990000;
+  --color-web3-gold: #b8860b;
+
+  /* ✅ 增强型双语字体序列 */
+  /* 英文优先用 Times/Georgia，中文自动回退到最美观的衬线体 (如思源宋体/屏显宋体) */
+  --font-serif: "Times New Roman", "Georgia", "Source Han Serif SC", "Noto Serif SC", "STSong", "Songti SC", "serif";
+  --font-sans: "Helvetica Neue", "Arial", "PingFang SC", "Microsoft YaHei", "sans-serif";
+}
+
+@layer base {
+  body {
+    /* 中文内容在 1.7 到 1.8 的行高下阅读感最接近报纸 */
+    @apply bg-ft-paper text-ft-text antialiased leading-[1.75];
+    font-family: var(--font-serif);
+    /* 允许汉字自动换行优化 */
+    text-justify: inter-character;
+  }
+
+  /* 实现报纸特有的首字下沉效果 */
+  .drop-cap::first-letter {
+    /* 对于汉字，leading 需要稍微调低防止压到下一行 */
+    @apply text-5xl font-black mr-2 float-left leading-[0.9] mt-1;
+    color: var(--color-ft-text);
+  }
+  
+  /* 针对 Web3 元素的特别标注 */
+  .protocol-tag {
+    @apply font-mono text-[10px] uppercase tracking-widest text-ft-accent border border-ft-accent/30 px-1 py-0.5;
+  }
+}
+
+/* 纸张纹理感：让背景看起来不是纯色，而是有纤维感的报纸 */
+.paper-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  background-repeat: repeat;
+}
+
+/* 链接样式：FT 风格通常是不带下划线的暗红色 */
+a {
+  @apply transition-colors duration-200;
+  color: var(--color-ft-accent);
+}
+
+a:hover {
+  @apply opacity-70;
+}
