@@ -41,6 +41,7 @@ guavanews/
 - Python
 - SQLAlchemy
 - PostgreSQL
+- Supabase Postgres ready via `DATABASE_URL`
 - CrewAI
 - `crewai_tools`
 - Tavily / Composio tool integrations when configured
@@ -157,8 +158,15 @@ This runs `start_guava_editorial()` and lets the CrewAI workflow generate and pu
 The backend currently expects:
 
 - PostgreSQL running locally at `postgresql://linyuanyuan@localhost:5432/guava_db`
+- or a Supabase Postgres connection string via `DATABASE_URL`
 - Ollama available at `http://localhost:11434`
 - optional API keys in [backend/.env](/Users/linyuanyuan/guavanews/backend/.env)
+
+Example `DATABASE_URL` for Supabase:
+
+```env
+DATABASE_URL=postgresql://username:password@db.your-project.supabase.co:5432/postgres
+```
 
 Useful backend config files:
 
